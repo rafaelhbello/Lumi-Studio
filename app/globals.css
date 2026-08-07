@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Base ─── */
 * {
   scroll-behavior: smooth;
 }
@@ -54,6 +55,29 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Design system utilities ─── */
+@layer components {
+  .ds-section {
+    @apply relative py-28;
+  }
+
+  .ds-container {
+    @apply mx-auto max-w-7xl px-6 lg:px-10;
+  }
+
+  .ds-eyebrow {
+    @apply mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600;
+  }
+
+  .ds-heading {
+    @apply font-display text-3xl font-bold text-navy-800 sm:text-4xl;
+  }
+
+  .ds-body {
+    @apply text-sm leading-relaxed text-navy-500;
   }
 }
 

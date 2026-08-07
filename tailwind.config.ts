@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './lib/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -9,6 +9,7 @@ const config: Config = {
           DEFAULT: '#0F2744',
           50: '#EAF0F7',
           100: '#CBDAEA',
+          200: '#A3BDD6',
           400: '#2C4A6E',
           600: '#16324F',
           700: '#0F2744',
@@ -29,9 +30,16 @@ const config: Config = {
         display: ['var(--font-jakarta)'],
         body: ['var(--font-inter)'],
       },
+      borderRadius: {
+        '2xl': '1.5rem',
+      },
       boxShadow: {
         premium: '0 20px 60px -15px rgba(15, 39, 68, 0.25)',
         gold: '0 0 30px rgba(200, 162, 76, 0.35)',
+        soft: '0 4px 24px -4px rgba(15, 39, 68, 0.08)',
+      },
+      maxWidth: {
+        container: '80rem',
       },
       backgroundImage: {
         'radial-fade': 'radial-gradient(circle at center, var(--tw-gradient-stops))',

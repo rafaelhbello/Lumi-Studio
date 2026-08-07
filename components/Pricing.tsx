@@ -3,23 +3,20 @@
 import { motion } from 'framer-motion';
 import { Check, ArrowRight } from 'lucide-react';
 import SectionReveal from './SectionReveal';
+import { Button, Container, SectionHeader } from './ui';
 import { pricing } from '@/lib/data';
 
 export default function Pricing() {
   return (
-    <section id="valores" className="relative bg-white py-28">
-      <div className="mx-auto max-w-5xl px-6 lg:px-10">
-        <SectionReveal className="max-w-2xl">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
-            Valores
-          </p>
-          <h2 className="font-display text-3xl font-bold text-navy-800 sm:text-4xl">
-            Quanto custa, por tipo de entrega
-          </h2>
-          <p className="mt-4 text-navy-500">
-            Landing page, site institucional ou campanha. O valor segue o que entra em cada
-            projeto — sem rótulos genéricos.
-          </p>
+    <section id="valores" className="ds-section bg-white">
+      <Container narrow>
+        <SectionReveal>
+          <SectionHeader
+            align="left"
+            eyebrow="Valores"
+            title="Quanto custa, por tipo de entrega"
+            description="Landing page, site institucional ou campanha. O valor segue o que entra em cada projeto — sem rótulos genéricos."
+          />
         </SectionReveal>
 
         <div className="mt-16 flex flex-col gap-6">
@@ -60,19 +57,13 @@ export default function Pricing() {
                   </div>
 
                   <div className="w-full shrink-0 lg:w-56">
-                    <div className="rounded-xl border border-navy-700/8 bg-white px-5 py-4 text-center">
+                    <div className="rounded-xl border border-navy-700/8 bg-white px-5 py-4 text-center shadow-soft">
                       <p className="font-display text-2xl font-bold text-navy-800">{item.value}</p>
                     </div>
-                    <a
-                      href="#cta"
-                      className="group mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
-                    >
+                    <Button href="#cta" variant="primary" size="md" className="mt-4 w-full">
                       Solicitar orçamento
-                      <ArrowRight
-                        size={15}
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </a>
+                      <ArrowRight size={15} />
+                    </Button>
                   </div>
                 </div>
               </motion.article>
@@ -86,7 +77,7 @@ export default function Pricing() {
             WhatsApp para um valor sob medida.
           </p>
         </SectionReveal>
-      </div>
+      </Container>
     </section>
   );
 }
