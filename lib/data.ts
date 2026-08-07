@@ -101,6 +101,11 @@ export const pricing = [
     pages: '1 página',
     description:
       'Uma única página focada em conversão: captura leads, agenda ou vendas. Ideal para campanhas, lançamentos e profissionais que precisam de resultado rápido.',
+    includes: [
+      'Página única de alta conversão',
+      'Formulário e WhatsApp',
+      'Design responsivo',
+    ],
     ranges: [
       { label: 'Entrega rápida', value: 'R$ 600 – 900' },
       { label: 'Com portfólio consolidado', value: 'R$ 1.200 – 1.800' },
@@ -114,14 +119,16 @@ export const pricing = [
     type: 'Site institucional',
     pages: 'Várias páginas',
     description:
-      'Home, serviços, sobre, contato e o que mais fizer sentido. Presença digital completa para empresas e profissionais que precisam de credibilidade.',
+      'Home, serviços, sobre, contato e o que mais fizer sentido. Pode incluir lista de clientes, agendamentos e prospecção, se quiser.',
+    includes: [
+      'Várias páginas (home, serviços, sobre, contato…)',
+      'Lista de clientes',
+      'Agendamentos',
+      'Prospecção (opcional)',
+      'Formulários e WhatsApp',
+    ],
     ranges: [
-      { label: 'Estrutura simples', value: 'R$ 1.500 – 2.500' },
-      { label: 'Com portfólio consolidado', value: 'R$ 2.500 – 4.000' },
-      {
-        label: 'Completo (SEO, domínio, hospedagem, Analytics, Pixel, formulários e suporte)',
-        value: 'R$ 3.500 – 6.000',
-      },
+      { label: 'Site institucional', value: 'R$ 1.500 – 2.500' },
     ],
   },
   {
@@ -129,6 +136,12 @@ export const pricing = [
     pages: 'Landing ou site curto',
     description:
       'Feito sob a data da eleição: propostas, biografia, agenda e formulário de apoiadores. Velocidade e urgência fazem parte do valor.',
+    includes: [
+      'Página de campanha',
+      'Propostas e biografia',
+      'Formulário de apoiadores',
+      'WhatsApp integrado',
+    ],
     ranges: [
       { label: 'Página de campanha', value: 'R$ 1.200 – 2.000' },
       {

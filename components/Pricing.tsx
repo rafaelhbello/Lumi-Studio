@@ -1,17 +1,15 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FileText, Building2, Vote, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import SectionReveal from './SectionReveal';
 import { pricing } from '@/lib/data';
 
-const icons = [FileText, Building2, Vote];
-
 export default function Pricing() {
   return (
-    <section id="valores" className="relative bg-offwhite py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <SectionReveal className="mx-auto max-w-2xl text-center">
+    <section id="valores" className="relative bg-white py-28">
+      <div className="mx-auto max-w-5xl px-6 lg:px-10">
+        <SectionReveal className="max-w-2xl">
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
             Valores
           </p>
@@ -19,66 +17,85 @@ export default function Pricing() {
             Quanto custa, por tipo de entrega
           </h2>
           <p className="mt-4 text-navy-500">
-            O valor muda conforme o que você precisa: uma página, várias páginas ou um site de
-            campanha. Sem rótulos genéricos — só o que entra em cada entrega.
+            Landing page, site institucional ou campanha. O valor segue o que entra em cada
+            projeto — sem rótulos genéricos.
           </p>
         </SectionReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {pricing.map((item, i) => {
-            const Icon = icons[i] ?? FileText;
-            return (
-              <SectionReveal key={item.type} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-navy-700/8 bg-white shadow-sm transition-shadow duration-300 hover:shadow-premium"
-                >
-                  <div className="border-b border-navy-700/8 bg-navy-800 px-7 py-6">
-                    <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-gold-500/15">
-                      <Icon size={22} className="text-gold-400" strokeWidth={1.75} />
+        <div className="mt-16 flex flex-col gap-6">
+          {pricing.map((item, i) => (
+            <SectionReveal key={item.type} delay={i * 0.06}>
+              <motion.article
+                whileHover={{ borderColor: 'rgba(200, 162, 76, 0.45)' }}
+                className="rounded-2xl border border-navy-700/10 bg-offwhite p-6 transition-colors duration-300 sm:p-8"
+              >
+                <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+                  {/* Esquerda: tipo + descrição + o que inclui */}
+                  <div className="max-w-xl flex-1">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                      <h3 className="font-display text-xl font-bold text-navy-800 sm:text-2xl">
+                        {item.type}
+                      </h3>
+                      <span className="text-sm font-medium text-gold-600">{item.pages}</span>
                     </div>
-                    <h3 className="font-display text-xl font-bold text-white">{item.type}</h3>
-                    <p className="mt-1 text-sm text-gold-300">{item.pages}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-navy-500">
+                      {item.description}
+                    </p>
+                    {item.includes && item.includes.length > 0 && (
+                      <ul className="mt-5 flex flex-col gap-2">
+                        {item.includes.map((line) => (
+                          <li
+                            key={line}
+                            className="flex items-start gap-2 text-sm text-navy-700"
+                          >
+                            <Check
+                              size={16}
+                              className="mt-0.5 flex-shrink-0 text-gold-600"
+                              strokeWidth={2.5}
+                            />
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
 
-                  <div className="flex flex-1 flex-col p-7">
-                    <p className="text-sm leading-relaxed text-navy-500">{item.description}</p>
-
-                    <ul className="mt-6 flex flex-col gap-4">
+                  {/* Direita: faixas de preço */}
+                  <div className="w-full shrink-0 lg:w-64">
+                    <ul className="flex flex-col gap-3">
                       {item.ranges.map((range) => (
                         <li
                           key={range.value}
-                          className="border-t border-navy-700/8 pt-4 first:border-0 first:pt-0"
+                          className="rounded-xl border border-navy-700/8 bg-white px-4 py-3"
                         >
                           <p className="text-xs leading-snug text-navy-400">{range.label}</p>
-                          <p className="mt-1 font-display text-lg font-bold text-navy-800">
+                          <p className="mt-0.5 font-display text-lg font-bold text-navy-800">
                             {range.value}
                           </p>
                         </li>
                       ))}
                     </ul>
-
                     <a
                       href="#cta"
-                      className="group mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-navy-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+                      className="group mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
                     >
                       Solicitar orçamento
                       <ArrowRight
-                        size={16}
+                        size={15}
                         className="transition-transform duration-300 group-hover:translate-x-1"
                       />
                     </a>
                   </div>
-                </motion.div>
-              </SectionReveal>
-            );
-          })}
+                </div>
+              </motion.article>
+            </SectionReveal>
+          ))}
         </div>
 
-        <SectionReveal delay={0.2} className="mt-12 text-center">
+        <SectionReveal delay={0.15} className="mt-10">
           <p className="text-sm text-navy-400">
-            Os valores são faixas de referência. O orçamento final depende do escopo e do prazo.
-            Fale com a gente no WhatsApp para um valor sob medida.
+            Valores de referência. O orçamento final depende do escopo e do prazo — fale no
+            WhatsApp para um valor sob medida.
           </p>
         </SectionReveal>
       </div>
