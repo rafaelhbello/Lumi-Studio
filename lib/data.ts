@@ -90,66 +90,28 @@ export const projects = [
     title: 'Kerllen Rodrigues · Nutrição Clínica e Esportiva',
     description:
       'Site institucional completo com página de serviços, prova social, formulário de pré-atendimento e área exclusiva do paciente.',
-    color: 'from-emerald-800 to-navy-700',
+    color: 'from-emerald-700 to-navy-800',
     liveUrl: 'https://nutri-kerllen.vercel.app/',
-  },
-  {
-    category: 'Político',
-    title: 'Campanha Eleitoral · Vereador',
-    description:
-      'Site de campanha com apresentação do candidato, linha do tempo de propostas e realizações, agenda de eventos e captação de apoiadores.',
-    color: 'from-navy-800 to-navy-600',
   },
 ];
 
-export const testimonials = [
-  {
-    name: 'Marina Costa',
-    role: 'Nutricionista Clínica',
-    rating: 5,
-    text: 'A LUMI entregou um site muito acima do que eu esperava. Profissionalismo do início ao fim e resultado impecável.',
-  },
-  {
-    name: 'Dr. Rafael Andrade',
-    role: 'Advogado Tributarista',
-    rating: 5,
-    text: 'O site trouxe muito mais credibilidade para o escritório. Já recebi diversos clientes que me encontraram pelo Google.',
-  },
-  {
-    name: 'Camila Torres',
-    role: 'Psicóloga Clínica',
-    rating: 5,
-    text: 'Equipe extremamente atenciosa e um design lindo, elegante e alinhado com o que eu queria transmitir aos pacientes.',
-  },
-  {
-    name: 'Fernanda Lima',
-    role: 'Odontologista',
-    rating: 5,
-    text: 'Processo rápido e muito bem organizado. O site ficou moderno, rápido e já converte pacientes todos os dias.',
-  },
-  {
-    name: 'Bruno Ferreira',
-    role: 'Consultor Empresarial',
-    rating: 5,
-    text: 'Investimento que se pagou em poucas semanas. A LUMI entende de verdade como transformar design em resultado.',
-  },
-];
+export const testimonials: {
+  name: string;
+  role: string;
+  rating: number;
+  text: string;
+}[] = [];
 
 export const faqs = [
   {
     question: 'Quanto tempo leva para o site ficar pronto?',
     answer:
-      'Em média, entre 15 e 30 dias, dependendo da complexidade do projeto e da agilidade no envio de conteúdos e aprovações.',
-  },
-  {
-    question: 'Quanto custa um site com a LUMI Studio?',
-    answer:
-      'Nossos projetos variam conforme escopo e objetivos, com investimentos entre R$ 3.000 e R$ 10.000. Solicite um orçamento personalizado.',
+      'Em menos tempo do que você imagina. Entregamos em até 10 dias úteis no máximo, dependendo da complexidade e da agilidade no envio de conteúdos e aprovações.',
   },
   {
     question: 'Preciso comprar o domínio separadamente?',
     answer:
-      'Cuidamos de todo o processo de registro de domínio próprio para você, garantindo uma URL profissional para o seu negócio.',
+      'Não. Cuidamos de todo o processo de registro de domínio próprio para você, garantindo uma URL profissional para o seu negócio.',
   },
   {
     question: 'Vocês oferecem manutenção após a entrega?',

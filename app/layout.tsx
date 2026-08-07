@@ -76,7 +76,10 @@ const jsonLd = {
   url: siteUrl,
   areaServed: 'BR',
   priceRange: 'R$3.000 - R$10.000',
-  sameAs: ['https://instagram.com/lumistudio', 'https://wa.me/5583900000000'],
+  sameAs: [
+    'https://www.instagram.com/lumistudiov/',
+    'https://wa.me/5586981302894',
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

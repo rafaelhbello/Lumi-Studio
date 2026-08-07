@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SectionReveal from './SectionReveal';
 
+const WHATSAPP = '5586981302894';
+
 export default function CTA() {
   return (
     <section id="cta" className="relative overflow-hidden bg-navy-800 py-28">
@@ -28,7 +30,7 @@ export default function CTA() {
           </p>
 
           <motion.a
-            href="https://wa.me/5583900000000"
+            href={`https://wa.me/${WHATSAPP}`}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}

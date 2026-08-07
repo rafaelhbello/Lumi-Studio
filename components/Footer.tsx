@@ -1,5 +1,7 @@
 import { Instagram, Mail, MapPin, MessageCircle } from 'lucide-react';
 
+const WHATSAPP = '5586981302894';
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -36,13 +38,13 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-semibold text-white">Contato</h4>
             <ul className="flex flex-col gap-3 text-sm">
               <li className="flex items-center gap-2">
-                <MessageCircle size={15} className="text-gold-400" /> (83) 90000-0000
+                <MessageCircle size={15} className="text-gold-400" /> (86) 98130-2894
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={15} className="text-gold-400" /> contato@lumistudio.com.br
               </li>
               <li className="flex items-center gap-2">
-                <MapPin size={15} className="text-gold-400" /> Campina Grande, PB
+                <MapPin size={15} className="text-gold-400" /> Brasil
               </li>
             </ul>
           </div>
@@ -51,7 +53,7 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-semibold text-white">Redes sociais</h4>
             <div className="flex gap-3">
               <a
-                href="https://instagram.com/lumistudio"
+                href="https://www.instagram.com/lumistudiov/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -60,7 +62,7 @@ export default function Footer() {
                 <Instagram size={17} />
               </a>
               <a
-                href="https://wa.me/5583900000000"
+                href={`https://wa.me/${WHATSAPP}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

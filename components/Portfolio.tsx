@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, X } from 'lucide-react';
+import { ArrowUpRight, X, ExternalLink } from 'lucide-react';
 import SectionReveal from './SectionReveal';
 import { projects } from '@/lib/data';
 
@@ -25,7 +25,7 @@ export default function Portfolio() {
           </p>
         </SectionReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-2">
           {projects.map((project, i) => (
             <SectionReveal key={project.title} delay={i * 0.07}>
               <motion.button
@@ -33,29 +33,51 @@ export default function Portfolio() {
                 whileHover={{ y: -6 }}
                 className="group relative block w-full overflow-hidden rounded-2xl text-left shadow-sm transition-shadow duration-300 hover:shadow-premium"
               >
-                <div
-                  className={`relative flex aspect-[4/3] w-full flex-col justify-end overflow-hidden bg-gradient-to-br p-6 ${project.color}`}
-                >
-                  <div className="absolute inset-0 bg-navy-900/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="mb-3 flex gap-1.5">
-                    <div className="h-2 w-2 rounded-full bg-white/40" />
-                    <div className="h-2 w-2 rounded-full bg-white/40" />
-                    <div className="h-2 w-2 rounded-full bg-white/40" />
+                {/* Browser chrome + mini preview */}
+                <div className="relative overflow-hidden rounded-2xl border border-navy-700/10 bg-navy-900">
+                  {/* Chrome bar */}
+                  <div className="flex items-center gap-2 border-b border-white/10 bg-navy-800 px-4 py-2.5">
+                    <div className="flex gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                    </div>
+                    <div className="ml-2 flex-1 truncate rounded-md bg-white/10 px-3 py-1 text-[11px] text-white/60">
+                      {project.liveUrl?.replace(/^https?:\/\//, '') ?? 'projeto.lumi'}
+                    </div>
                   </div>
-                  <div className="mb-3 h-20 w-full rounded-lg bg-white/10 backdrop-blur-sm" />
-                  <span className="text-xs font-semibold uppercase tracking-wider text-gold-300">
-                    {project.category}
-                  </span>
-                  <h3 className="mt-1 font-display text-lg font-semibold text-white">
-                    {project.title}
-                  </h3>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-gold-500 text-navy-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                  >
-                    <ArrowUpRight size={18} />
-                  </motion.div>
+
+                  {/* Mini preview area */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-offwhite">
+                    {project.liveUrl ? (
+                      <iframe
+                        src={project.liveUrl}
+                        title={project.title}
+                        className="pointer-events-none absolute inset-0 h-[200%] w-[200%] origin-top-left scale-50 border-0"
+                        loading="lazy"
+                        sandbox="allow-scripts allow-same-origin"
+                      />
+                    ) : (
+                      <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
+                    )}
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-navy-900/0 transition-colors duration-300 group-hover:bg-navy-900/20" />
+                  </div>
+
+                  {/* Info footer */}
+                  <div className="flex items-end justify-between gap-4 bg-navy-900 p-5">
+                    <div>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-gold-400">
+                        {project.category}
+                      </span>
+                      <h3 className="mt-1 font-display text-base font-semibold text-white sm:text-lg">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-gold-500 text-navy-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <ArrowUpRight size={18} />
+                    </div>
+                  </div>
                 </div>
               </motion.button>
             </SectionReveal>
@@ -70,7 +92,7 @@ export default function Portfolio() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-navy-900/60 p-6 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-navy-900/70 p-4 backdrop-blur-sm sm:p-6"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 20 }}
@@ -78,17 +100,32 @@ export default function Portfolio() {
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-premium"
+              className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-premium"
             >
-              <div className={`aspect-video w-full bg-gradient-to-br ${projects[active].color}`} />
               <button
                 onClick={() => setActive(null)}
                 aria-label="Fechar"
-                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-navy-800"
+                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-navy-800 shadow-sm"
               >
                 <X size={18} />
               </button>
-              <div className="p-8">
+
+              {/* Large preview */}
+              <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-navy-900">
+                {projects[active].liveUrl ? (
+                  <iframe
+                    src={projects[active].liveUrl}
+                    title={projects[active].title}
+                    className="h-full w-full border-0"
+                    loading="lazy"
+                    sandbox="allow-scripts allow-same-origin"
+                  />
+                ) : (
+                  <div className={`h-full w-full bg-gradient-to-br ${projects[active].color}`} />
+                )}
+              </div>
+
+              <div className="overflow-y-auto p-6 sm:p-8">
                 <span className="text-xs font-semibold uppercase tracking-wider text-gold-600">
                   {projects[active].category}
                 </span>
@@ -107,7 +144,7 @@ export default function Portfolio() {
                       className="inline-flex items-center gap-2 rounded-full border border-navy-700/15 px-6 py-3 text-sm font-semibold text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-700"
                     >
                       Ver site ao vivo
-                      <ArrowUpRight size={16} />
+                      <ExternalLink size={16} />
                     </a>
                   )}
                   <a

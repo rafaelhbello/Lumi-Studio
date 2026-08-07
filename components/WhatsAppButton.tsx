@@ -3,10 +3,12 @@
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
+const WHATSAPP = '5586981302894';
+
 export default function WhatsAppButton() {
   return (
     <motion.a
-      href="https://wa.me/5583900000000"
+      href={`https://wa.me/${WHATSAPP}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
