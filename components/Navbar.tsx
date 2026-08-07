@@ -10,6 +10,7 @@ const links = [
   { label: 'Diferenciais', href: '#diferenciais' },
   { label: 'Processo', href: '#processo' },
   { label: 'Portfólio', href: '#portfolio' },
+  { label: 'Valores', href: '#valores' },
   { label: 'FAQ', href: '#faq' },
 ];
 

@@ -95,6 +95,50 @@ export const projects = [
   },
 ];
 
+export const pricing = [
+  {
+    type: 'Landing Page',
+    pages: '1 página',
+    description:
+      'Uma única página focada em conversão: captura leads, agenda ou vendas. Ideal para campanhas, lançamentos e profissionais que precisam de resultado rápido.',
+    ranges: [
+      { label: 'Entrega rápida', value: 'R$ 600 – 900' },
+      { label: 'Com portfólio consolidado', value: 'R$ 1.200 – 1.800' },
+      {
+        label: 'Completo (SEO, domínio, hospedagem, Analytics, Pixel, formulário e suporte)',
+        value: 'R$ 2.000 – 3.500',
+      },
+    ],
+  },
+  {
+    type: 'Site institucional',
+    pages: 'Várias páginas',
+    description:
+      'Home, serviços, sobre, contato e o que mais fizer sentido. Presença digital completa para empresas e profissionais que precisam de credibilidade.',
+    ranges: [
+      { label: 'Estrutura simples', value: 'R$ 1.500 – 2.500' },
+      { label: 'Com portfólio consolidado', value: 'R$ 2.500 – 4.000' },
+      {
+        label: 'Completo (SEO, domínio, hospedagem, Analytics, Pixel, formulários e suporte)',
+        value: 'R$ 3.500 – 6.000',
+      },
+    ],
+  },
+  {
+    type: 'Site de campanha',
+    pages: 'Landing ou site curto',
+    description:
+      'Feito sob a data da eleição: propostas, biografia, agenda e formulário de apoiadores. Velocidade e urgência fazem parte do valor.',
+    ranges: [
+      { label: 'Página de campanha', value: 'R$ 1.200 – 2.000' },
+      {
+        label: 'Com domínio, formulário de apoiadores, WhatsApp e ajustes de urgência',
+        value: 'R$ 2.000 – 3.500',
+      },
+    ],
+  },
+];
+
 export const testimonials: {
   name: string;
   role: string;

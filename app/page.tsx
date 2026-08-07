@@ -4,6 +4,7 @@ import Services from '@/components/Services';
 import Differentials from '@/components/Differentials';
 import Process from '@/components/Process';
 import Portfolio from '@/components/Portfolio';
+import Pricing from '@/components/Pricing';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
@@ -17,6 +18,7 @@ export default function Home() {
       <Differentials />
       <Process />
       <Portfolio />
+      <Pricing />
       <FAQ />
       <CTA />
       <Footer />
