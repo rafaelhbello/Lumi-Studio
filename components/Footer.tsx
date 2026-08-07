@@ -1,4 +1,5 @@
 import { Instagram, Mail, MapPin, MessageCircle } from 'lucide-react';
+import Logo from './Logo';
 
 const WHATSAPP = '5586981302894';
 
@@ -10,10 +11,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <a href="#top" className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold-500/15">
-                <span className="font-display text-sm font-bold text-gold-400">L</span>
-              </span>
+            <a href="#top" className="flex items-center gap-2.5">
+              <Logo className="h-8 w-8" light />
               <span className="font-display text-lg font-bold text-white">
                 LUMI <span className="text-gold-400">Studio</span>
               </span>

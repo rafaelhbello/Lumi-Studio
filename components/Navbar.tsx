@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const links = [
   { label: 'Serviços', href: '#servicos' },
@@ -33,11 +34,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-navy-700">
-            <span className="absolute inset-0 rounded-full bg-gold-500/40 blur-md animate-pulseGlow" />
-            <span className="relative font-display text-sm font-bold text-gold-300">L</span>
-          </span>
+        <a href="#top" className="flex items-center gap-2.5 group">
+          <Logo className="h-9 w-9 transition-transform duration-300 group-hover:scale-105" />
           <span className="font-display text-lg font-bold tracking-tight text-navy-800">
             LUMI <span className="text-gold-600">Studio</span>
           </span>
