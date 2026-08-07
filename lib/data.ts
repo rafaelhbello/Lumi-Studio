@@ -106,14 +106,7 @@ export const pricing = [
       'Formulário e WhatsApp',
       'Design responsivo',
     ],
-    ranges: [
-      { label: 'Entrega rápida', value: 'R$ 600 – 900' },
-      { label: 'Com portfólio consolidado', value: 'R$ 1.200 – 1.800' },
-      {
-        label: 'Completo (SEO, domínio, hospedagem, Analytics, Pixel, formulário e suporte)',
-        value: 'R$ 2.000 – 3.500',
-      },
-    ],
+    value: 'R$ 600 – 900',
   },
   {
     type: 'Site institucional',
@@ -127,9 +120,7 @@ export const pricing = [
       'Prospecção (opcional)',
       'Formulários e WhatsApp',
     ],
-    ranges: [
-      { label: 'Site institucional', value: 'R$ 1.500 – 2.500' },
-    ],
+    value: 'R$ 1.500 – 2.500',
   },
   {
     type: 'Site de campanha',
@@ -142,13 +133,7 @@ export const pricing = [
       'Formulário de apoiadores',
       'WhatsApp integrado',
     ],
-    ranges: [
-      { label: 'Página de campanha', value: 'R$ 1.200 – 2.000' },
-      {
-        label: 'Com domínio, formulário de apoiadores, WhatsApp e ajustes de urgência',
-        value: 'R$ 2.000 – 3.500',
-      },
-    ],
+    value: 'R$ 1.200 – 2.000',
   },
 ];
 

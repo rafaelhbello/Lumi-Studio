@@ -30,7 +30,6 @@ export default function Pricing() {
                 className="rounded-2xl border border-navy-700/10 bg-offwhite p-6 transition-colors duration-300 sm:p-8"
               >
                 <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-                  {/* Esquerda: tipo + descrição + o que inclui */}
                   <div className="max-w-xl flex-1">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                       <h3 className="font-display text-xl font-bold text-navy-800 sm:text-2xl">
@@ -60,21 +59,10 @@ export default function Pricing() {
                     )}
                   </div>
 
-                  {/* Direita: faixas de preço */}
-                  <div className="w-full shrink-0 lg:w-64">
-                    <ul className="flex flex-col gap-3">
-                      {item.ranges.map((range) => (
-                        <li
-                          key={range.value}
-                          className="rounded-xl border border-navy-700/8 bg-white px-4 py-3"
-                        >
-                          <p className="text-xs leading-snug text-navy-400">{range.label}</p>
-                          <p className="mt-0.5 font-display text-lg font-bold text-navy-800">
-                            {range.value}
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="w-full shrink-0 lg:w-56">
+                    <div className="rounded-xl border border-navy-700/8 bg-white px-5 py-4 text-center">
+                      <p className="font-display text-2xl font-bold text-navy-800">{item.value}</p>
+                    </div>
                     <a
                       href="#cta"
                       className="group mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-navy-700 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
