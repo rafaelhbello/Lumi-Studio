@@ -5,6 +5,41 @@ import { useRef } from 'react';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import AmbientBackground from './AmbientBackground';
 
+function BrowserScreen({ className = '' }: { className?: string }) {
+  return (
+    <div className={`overflow-hidden rounded-md bg-offwhite ${className}`}>
+      <div className="flex h-full w-full flex-col">
+        <div className="flex items-center justify-between bg-white px-3 py-2 sm:px-4 sm:py-2.5">
+          <div className="h-2 w-12 rounded-full bg-navy-700 sm:h-2.5 sm:w-16" />
+          <div className="flex gap-1.5 sm:gap-2">
+            <div className="h-1.5 w-6 rounded-full bg-navy-100 sm:h-2 sm:w-8" />
+            <div className="h-1.5 w-6 rounded-full bg-navy-100 sm:h-2 sm:w-8" />
+            <div className="h-1.5 w-8 rounded-full bg-gold-500 sm:h-2 sm:w-10" />
+          </div>
+        </div>
+        <div className="flex flex-1 flex-col items-start justify-center gap-2 bg-gradient-to-br from-navy-700 to-navy-900 px-4 sm:gap-3 sm:px-6">
+          <div className="h-1.5 w-16 rounded-full bg-gold-400/80 sm:h-2 sm:w-24" />
+          <div className="h-3 w-36 rounded-full bg-white/90 sm:h-4 sm:w-52" />
+          <div className="h-3 w-28 rounded-full bg-white/60 sm:h-4 sm:w-40" />
+          <div className="mt-1 h-6 w-20 rounded-full bg-gold-500 sm:mt-2 sm:h-8 sm:w-28" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PhoneScreen() {
+  return (
+    <div className="flex h-full flex-col gap-2 bg-gradient-to-b from-navy-700 to-navy-900 p-3">
+      <div className="h-1.5 w-10 rounded-full bg-gold-400/80" />
+      <div className="h-2.5 w-16 rounded-full bg-white/90" />
+      <div className="mt-2 h-14 w-full rounded-lg bg-white/10" />
+      <div className="h-14 w-full rounded-lg bg-white/10" />
+      <div className="mt-auto h-6 w-full rounded-full bg-gold-500" />
+    </div>
+  );
+}
+
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
@@ -97,65 +132,137 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Mockups */}
+        {/* Mockups em cascata */}
         <motion.div
           style={{ y, opacity }}
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           className="relative z-10 mx-auto w-full max-w-lg lg:max-w-none"
         >
           <div className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400/20 blur-[100px]" />
           <div className="absolute left-1/3 top-1/4 -z-10 h-[300px] w-[300px] rounded-full bg-navy-400/20 blur-[90px]" />
 
-          <div className="relative mx-auto w-full animate-float">
-            <div className="rounded-t-xl border-4 border-navy-800 bg-navy-800 p-2 shadow-premium">
-              <div className="flex items-center gap-1.5 pb-2 pl-1">
-                <span className="h-2 w-2 rounded-full bg-white/30" />
-                <span className="h-2 w-2 rounded-full bg-white/30" />
-                <span className="h-2 w-2 rounded-full bg-white/30" />
-              </div>
-              <div className="aspect-[16/10] w-full overflow-hidden rounded-md bg-offwhite">
-                <div className="flex h-full w-full flex-col">
-                  <div className="flex items-center justify-between bg-white px-4 py-2.5">
-                    <div className="h-2.5 w-16 rounded-full bg-navy-700" />
-                    <div className="flex gap-2">
-                      <div className="h-2 w-8 rounded-full bg-navy-100" />
-                      <div className="h-2 w-8 rounded-full bg-navy-100" />
-                      <div className="h-2 w-10 rounded-full bg-gold-500" />
-                    </div>
-                  </div>
-                  <div className="flex flex-1 flex-col items-start justify-center gap-3 bg-gradient-to-br from-navy-700 to-navy-900 px-6">
-                    <div className="h-2 w-24 rounded-full bg-gold-400/80" />
-                    <div className="h-4 w-52 rounded-full bg-white/90" />
-                    <div className="h-4 w-40 rounded-full bg-white/60" />
-                    <div className="mt-2 h-8 w-28 rounded-full bg-gold-500" />
-                  </div>
+          <div className="relative mx-auto aspect-[4/3] w-full max-w-md lg:max-w-none">
+            {/* Camada 3 — fundo (mais atrás, menor, deslocada) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40, x: -28, rotate: -6 }}
+              animate={{
+                opacity: 0.55,
+                y: [0, -8, 0],
+                x: -28,
+                rotate: -6,
+              }}
+              transition={{
+                opacity: { duration: 0.7, delay: 0.15 },
+                y: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.4 },
+              }}
+              className="absolute left-[4%] top-[8%] z-0 w-[72%]"
+            >
+              <div className="rounded-t-lg border-[3px] border-navy-800/80 bg-navy-800/80 p-1.5 shadow-lg">
+                <div className="mb-1 flex gap-1 pl-0.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
                 </div>
+                <BrowserScreen className="aspect-[16/10] opacity-90" />
               </div>
-            </div>
-            <div className="mx-auto h-3 w-[92%] rounded-b-xl bg-navy-700" />
-            <div className="mx-auto h-1.5 w-[40%] rounded-b-lg bg-navy-900" />
-          </div>
+            </motion.div>
 
-          <motion.div
-            className="absolute -bottom-6 -right-2 w-28 animate-floatSlow sm:w-32 lg:-right-6 lg:w-36"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <div className="rounded-[1.6rem] border-4 border-navy-800 bg-navy-800 p-1.5 shadow-premium">
-              <div className="aspect-[9/19] w-full overflow-hidden rounded-[1.1rem] bg-offwhite">
-                <div className="flex h-full flex-col gap-2 bg-gradient-to-b from-navy-700 to-navy-900 p-3">
-                  <div className="h-1.5 w-10 rounded-full bg-gold-400/80" />
-                  <div className="h-2.5 w-16 rounded-full bg-white/90" />
-                  <div className="mt-2 h-16 w-full rounded-lg bg-white/10" />
-                  <div className="h-16 w-full rounded-lg bg-white/10" />
-                  <div className="mt-auto h-6 w-full rounded-full bg-gold-500" />
+            {/* Camada 2 — meio */}
+            <motion.div
+              initial={{ opacity: 0, y: 50, x: 20, rotate: 4 }}
+              animate={{
+                opacity: 0.75,
+                y: [0, -12, 0],
+                x: 20,
+                rotate: 4,
+              }}
+              transition={{
+                opacity: { duration: 0.7, delay: 0.28 },
+                y: { duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 },
+              }}
+              className="absolute right-[2%] top-[2%] z-[1] w-[78%]"
+            >
+              <div className="rounded-t-lg border-[3px] border-navy-800 bg-navy-800 p-1.5 shadow-xl">
+                <div className="mb-1 flex gap-1 pl-0.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/30" />
+                </div>
+                <BrowserScreen className="aspect-[16/10]" />
+              </div>
+            </motion.div>
+
+            {/* Camada 1 — notebook principal (frente) */}
+            <motion.div
+              initial={{ opacity: 0, y: 60, scale: 0.94 }}
+              animate={{
+                opacity: 1,
+                y: [0, -14, 0],
+                scale: 1,
+              }}
+              transition={{
+                opacity: { duration: 0.8, delay: 0.4 },
+                scale: { duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] },
+                y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+              }}
+              className="absolute bottom-[6%] left-[8%] z-[2] w-[84%]"
+            >
+              <div className="rounded-t-xl border-4 border-navy-800 bg-navy-800 p-2 shadow-premium">
+                <div className="flex items-center gap-1.5 pb-2 pl-1">
+                  <span className="h-2 w-2 rounded-full bg-white/30" />
+                  <span className="h-2 w-2 rounded-full bg-white/30" />
+                  <span className="h-2 w-2 rounded-full bg-white/30" />
+                </div>
+                <BrowserScreen className="aspect-[16/10]" />
+              </div>
+              <div className="mx-auto h-3 w-[92%] rounded-b-xl bg-navy-700" />
+              <div className="mx-auto h-1.5 w-[40%] rounded-b-lg bg-navy-900" />
+            </motion.div>
+
+            {/* Celular — cascata na frente/direita */}
+            <motion.div
+              initial={{ opacity: 0, y: 70, x: 30 }}
+              animate={{
+                opacity: 1,
+                y: [0, -10, 0],
+                x: 0,
+              }}
+              transition={{
+                opacity: { duration: 0.7, delay: 0.55 },
+                x: { duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] },
+                y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 },
+              }}
+              className="absolute -bottom-2 right-0 z-[3] w-[26%] min-w-[5.5rem] sm:min-w-[7rem] lg:right-[-2%]"
+            >
+              <div className="rounded-[1.4rem] border-4 border-navy-800 bg-navy-800 p-1.5 shadow-premium sm:rounded-[1.6rem]">
+                <div className="aspect-[9/19] w-full overflow-hidden rounded-[1rem] bg-offwhite sm:rounded-[1.1rem]">
+                  <PhoneScreen />
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Celular menor atrás (eco da cascata) */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{
+                opacity: 0.5,
+                y: [0, -6, 0],
+              }}
+              transition={{
+                opacity: { duration: 0.6, delay: 0.7 },
+                y: { duration: 6.2, repeat: Infinity, ease: 'easeInOut', delay: 0.6 },
+              }}
+              className="absolute bottom-[18%] right-[22%] z-[1] w-[18%] min-w-[3.5rem] rotate-[-8deg] sm:min-w-[4.5rem]"
+            >
+              <div className="rounded-[1rem] border-[3px] border-navy-800/70 bg-navy-800/70 p-1 shadow-lg">
+                <div className="aspect-[9/19] w-full overflow-hidden rounded-[0.7rem] bg-offwhite opacity-90">
+                  <PhoneScreen />
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
