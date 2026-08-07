@@ -29,7 +29,7 @@ export default function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-300/60 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-700 shadow-sm"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-gold-500" />
-            Agência digital premium
+            Digital Agency
           </motion.div>
 
           <motion.h1
@@ -38,7 +38,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-navy-800 sm:text-5xl lg:text-[3.4rem]"
           >
-            Seu negócio merece um site que <span className="text-gradient-gold">vende.</span>
+            Seu studio que o seu site{' '}
+            <span className="text-gradient-gold">precisa.</span>
           </motion.h1>
 
           <motion.p
@@ -47,8 +48,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.22 }}
             className="mt-6 max-w-xl text-lg leading-relaxed text-navy-600"
           >
-            Criamos sites modernos, rápidos e estratégicos para empresas e profissionais que
-            desejam fortalecer sua presença digital e conquistar mais clientes.
+            Do negócio local para uma presença profissional online. Criamos sites modernos,
+            rápidos e estratégicos para empresas e profissionais que querem vender mais.
           </motion.p>
 
           <motion.div
@@ -104,11 +105,9 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 mx-auto w-full max-w-lg lg:max-w-none"
         >
-          {/* glow atrás do notebook */}
           <div className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold-400/20 blur-[100px]" />
           <div className="absolute left-1/3 top-1/4 -z-10 h-[300px] w-[300px] rounded-full bg-navy-400/20 blur-[90px]" />
 
-          {/* Notebook mockup */}
           <div className="relative mx-auto w-full animate-float">
             <div className="rounded-t-xl border-4 border-navy-800 bg-navy-800 p-2 shadow-premium">
               <div className="flex items-center gap-1.5 pb-2 pl-1">
@@ -139,7 +138,6 @@ export default function Hero() {
             <div className="mx-auto h-1.5 w-[40%] rounded-b-lg bg-navy-900" />
           </div>
 
-          {/* Smartphone mockup */}
           <motion.div
             className="absolute -bottom-6 -right-2 w-28 animate-floatSlow sm:w-32 lg:-right-6 lg:w-36"
             initial={{ opacity: 0, x: 20 }}

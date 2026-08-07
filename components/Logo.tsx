@@ -3,11 +3,9 @@ type LogoProps = {
   light?: boolean;
 };
 
+/** Logo mark LUMI Studio — hexágono aberto navy + fita dourada */
 export default function Logo({ className = 'h-8 w-8', light = false }: LogoProps) {
   const navy = light ? '#FFFFFF' : '#0F2744';
-  const gold = '#C8A24C';
-  const goldMid = '#B8943F';
-  const goldDark = '#9A7A30';
 
   return (
     <svg
@@ -17,54 +15,26 @@ export default function Logo({ className = 'h-8 w-8', light = false }: LogoProps
       className={className}
       aria-hidden
     >
-      {/* Navy open hexagon / C shape */}
+      {/* Base navy — forma hexagonal aberta (estilo C) */}
       <path
-        d="M68 14
-           H36
-           L16 38
-           V62
-           L36 86
-           H68
-           V70
-           H42
-           L30 58
-           V42
-           L42 30
-           H68
-           Z"
         fill={navy}
+        d="M70 12H34L12 38v24l22 26h36V72H40l-12-12V40l12-12h30V12z"
       />
-      {/* Gold ribbon - left panel */}
+      {/* Fita dourada — painel esquerdo */}
       <path
-        d="M52 10
-           L66 10
-           L78 34
-           L66 58
-           L52 58
-           L62 34
-           Z"
-        fill={gold}
+        fill="#C8A24C"
+        d="M50 6h16l14 28-14 28H50l12-28L50 6z"
       />
-      {/* Gold ribbon - right panel (darker for depth) */}
+      {/* Fita dourada — painel direito (sombra) */}
       <path
-        d="M66 10
-           L80 10
-           L92 34
-           L80 58
-           L66 58
-           L76 34
-           Z"
-        fill={goldDark}
+        fill="#9A7A30"
+        d="M66 6h16l14 28-14 28H66l12-28L66 6z"
       />
-      {/* Gold ribbon highlight */}
+      {/* Destaque central da fita */}
       <path
-        d="M62 34
-           L76 34
-           L66 58
-           L52 58
-           Z"
-        fill={goldMid}
-        opacity="0.85"
+        fill="#DBC087"
+        d="M62 34h16L66 62H50l12-28z"
+        opacity="0.7"
       />
     </svg>
   );
