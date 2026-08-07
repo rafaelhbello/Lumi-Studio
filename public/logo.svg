@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
-  <!-- Navy geometric base (open hexagon / C shape) -->
-  <path d="M78 22 L42 22 L18 48 L18 72 L42 98 L78 98 L78 78 L48 78 L38 68 L38 52 L48 42 L78 42 Z" fill="#0F2744"/>
-  <!-- Gold accent (folded ribbon) -->
-  <path d="M62 18 L78 18 L92 38 L78 58 L62 58 L72 38 Z" fill="#C8A24C"/>
-  <path d="M78 18 L94 18 L108 38 L94 58 L78 58 L88 38 Z" fill="#AD8838"/>
-  <path d="M72 38 L88 38 L78 58 L62 58 Z" fill="#DBC087" opacity="0.9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <path d="M68 14 H36 L16 38 V62 L36 86 H68 V70 H42 L30 58 V42 L42 30 H68 Z" fill="#0F2744"/>
+  <path d="M52 10 L66 10 L78 34 L66 58 L52 58 L62 34 Z" fill="#C8A24C"/>
+  <path d="M66 10 L80 10 L92 34 L80 58 L66 58 L76 34 Z" fill="#AD8838"/>
+  <path d="M62 34 L76 34 L66 58 L52 58 Z" fill="#B8943F" opacity="0.85"/>
 </svg>
