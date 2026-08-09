@@ -1,5 +1,4 @@
 import { cn } from '@/lib/cn';
-import Badge from './Badge';
 
 export default function SectionHeader({
   eyebrow,
@@ -23,12 +22,16 @@ export default function SectionHeader({
       )}
     >
       {eyebrow && (
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600 dark:text-gold-400">
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-3xl font-bold text-navy-800 sm:text-4xl">{title}</h2>
-      {description && <p className="mt-4 text-navy-500">{description}</p>}
+      <h2 className="font-display text-3xl font-bold text-navy-800 dark:text-white sm:text-4xl">
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-4 text-navy-500 dark:text-navy-100/70">{description}</p>
+      )}
     </div>
   );
 }

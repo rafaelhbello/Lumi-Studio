@@ -10,16 +10,16 @@ export default function Portfolio() {
   const [active, setActive] = useState<number | null>(null);
 
   return (
-    <section id="portfolio" className="relative bg-white py-28">
+    <section id="portfolio" className="relative bg-white py-28 dark:bg-navy-900">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <SectionReveal className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600 dark:text-gold-400">
             Portfólio
           </p>
-          <h2 className="font-display text-3xl font-bold text-navy-800 sm:text-4xl">
+          <h2 className="font-display text-3xl font-bold text-navy-800 dark:text-white sm:text-4xl">
             Projetos que já transformamos em resultado
           </h2>
-          <p className="mt-4 text-navy-500">
+          <p className="mt-4 text-navy-500 dark:text-navy-100/70">
             Uma seleção de trabalhos desenvolvidos para profissionais e empresas de diferentes
             segmentos.
           </p>
@@ -33,9 +33,7 @@ export default function Portfolio() {
                 whileHover={{ y: -6 }}
                 className="group relative block w-full overflow-hidden rounded-2xl text-left shadow-sm transition-shadow duration-300 hover:shadow-premium"
               >
-                {/* Browser chrome + mini preview */}
-                <div className="relative overflow-hidden rounded-2xl border border-navy-700/10 bg-navy-900">
-                  {/* Chrome bar */}
+                <div className="relative overflow-hidden rounded-2xl border border-navy-700/10 bg-navy-900 dark:border-white/10">
                   <div className="flex items-center gap-2 border-b border-white/10 bg-navy-800 px-4 py-2.5">
                     <div className="flex gap-1.5">
                       <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
@@ -47,8 +45,7 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  {/* Mini preview area */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-offwhite">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-offwhite dark:bg-navy-800">
                     {project.liveUrl ? (
                       <iframe
                         src={project.liveUrl}
@@ -60,11 +57,9 @@ export default function Portfolio() {
                     ) : (
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.color}`} />
                     )}
-                    {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-navy-900/0 transition-colors duration-300 group-hover:bg-navy-900/20" />
                   </div>
 
-                  {/* Info footer */}
                   <div className="flex items-end justify-between gap-4 bg-navy-900 p-5">
                     <div>
                       <span className="text-xs font-semibold uppercase tracking-wider text-gold-400">
@@ -100,17 +95,16 @@ export default function Portfolio() {
               exit={{ opacity: 0, scale: 0.94, y: 20 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-premium"
+              className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-premium dark:bg-navy-800"
             >
               <button
                 onClick={() => setActive(null)}
                 aria-label="Fechar"
-                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-navy-800 shadow-sm"
+                className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-navy-800 shadow-sm dark:bg-navy-900 dark:text-white"
               >
                 <X size={18} />
               </button>
 
-              {/* Large preview */}
               <div className="relative aspect-video w-full shrink-0 overflow-hidden bg-navy-900">
                 {projects[active].liveUrl ? (
                   <iframe
@@ -126,13 +120,13 @@ export default function Portfolio() {
               </div>
 
               <div className="overflow-y-auto p-6 sm:p-8">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gold-600">
+                <span className="text-xs font-semibold uppercase tracking-wider text-gold-600 dark:text-gold-400">
                   {projects[active].category}
                 </span>
-                <h3 className="mt-1 font-display text-xl font-semibold text-navy-800">
+                <h3 className="mt-1 font-display text-xl font-semibold text-navy-800 dark:text-white">
                   {projects[active].title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-navy-500">
+                <p className="mt-3 text-sm leading-relaxed text-navy-500 dark:text-navy-100/70">
                   {projects[active].description}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -141,7 +135,7 @@ export default function Portfolio() {
                       href={projects[active].liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-navy-700/15 px-6 py-3 text-sm font-semibold text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-700"
+                      className="inline-flex items-center gap-2 rounded-full border border-navy-700/15 px-6 py-3 text-sm font-semibold text-navy-700 transition-colors hover:border-gold-400 hover:text-gold-700 dark:border-white/15 dark:text-navy-100 dark:hover:border-gold-400 dark:hover:text-gold-300"
                     >
                       Ver site ao vivo
                       <ExternalLink size={16} />
@@ -150,7 +144,7 @@ export default function Portfolio() {
                   <a
                     href="#cta"
                     onClick={() => setActive(null)}
-                    className="inline-flex items-center gap-2 rounded-full bg-navy-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
+                    className="inline-flex items-center gap-2 rounded-full bg-navy-700 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-800 dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400"
                   >
                     Quero um projeto assim
                     <ArrowUpRight size={16} />

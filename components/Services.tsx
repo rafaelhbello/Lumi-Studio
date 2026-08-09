@@ -25,7 +25,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function Services() {
   return (
-    <section id="servicos" className="ds-section bg-white">
+    <section id="servicos" className="ds-section bg-white dark:bg-navy-900">
       <Container>
         <SectionReveal>
           <SectionHeader
@@ -42,14 +42,14 @@ export default function Services() {
               <SectionReveal key={service.title} delay={i * 0.08}>
                 <motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3, ease: 'easeOut' }}>
                   <Card hover padding="lg" className="group relative h-full overflow-hidden">
-                    <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold-100/0 transition-all duration-500 group-hover:bg-gold-100/60" />
-                    <div className="relative mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-navy-700 transition-colors duration-300 group-hover:bg-gold-500">
+                    <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-gold-100/0 transition-all duration-500 group-hover:bg-gold-100/60 dark:group-hover:bg-gold-500/10" />
+                    <div className="relative mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-navy-700 transition-colors duration-300 group-hover:bg-gold-500 dark:bg-navy-700">
                       <Icon size={22} className="text-white" strokeWidth={1.75} />
                     </div>
-                    <h3 className="relative font-display text-lg font-semibold text-navy-800">
+                    <h3 className="relative font-display text-lg font-semibold text-navy-800 dark:text-white">
                       {service.title}
                     </h3>
-                    <p className="relative mt-3 text-sm leading-relaxed text-navy-500">
+                    <p className="relative mt-3 text-sm leading-relaxed text-navy-500 dark:text-navy-100/70">
                       {service.description}
                     </p>
                   </Card>

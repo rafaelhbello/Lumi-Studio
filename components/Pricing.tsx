@@ -8,7 +8,7 @@ import { pricing } from '@/lib/data';
 
 export default function Pricing() {
   return (
-    <section id="valores" className="ds-section bg-white">
+    <section id="valores" className="ds-section bg-white dark:bg-navy-900">
       <Container narrow>
         <SectionReveal>
           <SectionHeader
@@ -24,17 +24,19 @@ export default function Pricing() {
             <SectionReveal key={item.type} delay={i * 0.06}>
               <motion.article
                 whileHover={{ borderColor: 'rgba(200, 162, 76, 0.45)' }}
-                className="rounded-2xl border border-navy-700/10 bg-offwhite p-6 transition-colors duration-300 sm:p-8"
+                className="rounded-2xl border border-navy-700/10 bg-offwhite p-6 transition-colors duration-300 dark:border-white/10 dark:bg-navy-800/50 sm:p-8"
               >
                 <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
                   <div className="max-w-xl flex-1">
                     <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                      <h3 className="font-display text-xl font-bold text-navy-800 sm:text-2xl">
+                      <h3 className="font-display text-xl font-bold text-navy-800 dark:text-white sm:text-2xl">
                         {item.type}
                       </h3>
-                      <span className="text-sm font-medium text-gold-600">{item.pages}</span>
+                      <span className="text-sm font-medium text-gold-600 dark:text-gold-400">
+                        {item.pages}
+                      </span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-navy-500">
+                    <p className="mt-3 text-sm leading-relaxed text-navy-500 dark:text-navy-100/70">
                       {item.description}
                     </p>
                     {item.includes && item.includes.length > 0 && (
@@ -42,7 +44,7 @@ export default function Pricing() {
                         {item.includes.map((line) => (
                           <li
                             key={line}
-                            className="flex items-start gap-2 text-sm text-navy-700"
+                            className="flex items-start gap-2 text-sm text-navy-700 dark:text-navy-100/80"
                           >
                             <Check
                               size={16}
@@ -57,8 +59,10 @@ export default function Pricing() {
                   </div>
 
                   <div className="w-full shrink-0 lg:w-56">
-                    <div className="rounded-xl border border-navy-700/8 bg-white px-5 py-4 text-center shadow-soft">
-                      <p className="font-display text-2xl font-bold text-navy-800">{item.value}</p>
+                    <div className="rounded-xl border border-navy-700/8 bg-white px-5 py-4 text-center shadow-soft dark:border-white/10 dark:bg-navy-900">
+                      <p className="font-display text-2xl font-bold text-navy-800 dark:text-white">
+                        {item.value}
+                      </p>
                     </div>
                     <Button href="#cta" variant="primary" size="md" className="mt-4 w-full">
                       Solicitar orçamento
@@ -72,7 +76,7 @@ export default function Pricing() {
         </div>
 
         <SectionReveal delay={0.15} className="mt-10">
-          <p className="text-sm text-navy-400">
+          <p className="text-sm text-navy-400 dark:text-navy-100/50">
             Valores de referência. O orçamento final depende do escopo e do prazo — fale no
             WhatsApp para um valor sob medida.
           </p>

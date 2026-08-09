@@ -22,7 +22,7 @@ export default function Card({
   return (
     <div
       className={cn(
-        'rounded-2xl border border-navy-700/8 bg-white shadow-sm',
+        'rounded-2xl border border-navy-700/8 bg-white shadow-sm dark:border-white/10 dark:bg-navy-800/60',
         hover && 'transition-shadow duration-300 hover:shadow-premium',
         paddings[padding],
         className,

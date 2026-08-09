@@ -47,22 +47,23 @@ export const shadow = {
 } as const;
 
 export const spacing = {
-  section: '7rem', // py-28
-  container: '80rem', // max-w-7xl
+  section: '7rem',
+  container: '80rem',
 } as const;
 
-/** Variantes semânticas usadas pelos componentes UI */
+/** Variantes semânticas — incluem suporte a dark mode */
 export const buttonVariants = {
   primary:
-    'bg-navy-700 text-white hover:bg-navy-800 shadow-sm hover:shadow-gold',
+    'bg-navy-700 text-white hover:bg-navy-800 shadow-sm hover:shadow-gold dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400',
   secondary:
-    'border border-navy-700/15 bg-white text-navy-700 hover:border-gold-400 hover:text-gold-700',
+    'border border-navy-700/15 bg-white text-navy-700 hover:border-gold-400 hover:text-gold-700 dark:border-white/15 dark:bg-navy-800 dark:text-navy-50 dark:hover:border-gold-400 dark:hover:text-gold-300',
   gold: 'bg-gold-500 text-navy-900 shadow-gold hover:bg-gold-600',
-  ghost: 'text-navy-600 hover:text-navy-900 hover:bg-navy-700/5',
+  ghost:
+    'text-navy-600 hover:text-navy-900 hover:bg-navy-700/5 dark:text-navy-100/80 dark:hover:text-white dark:hover:bg-white/5',
 } as const;
 
 export const badgeVariants = {
-  gold: 'border border-gold-300/60 bg-white text-gold-700',
-  navy: 'border border-navy-700/10 bg-navy-50 text-navy-700',
-  soft: 'bg-gold-100/80 text-gold-700',
+  gold: 'border border-gold-300/60 bg-white text-gold-700 dark:border-gold-500/40 dark:bg-navy-800 dark:text-gold-300',
+  navy: 'border border-navy-700/10 bg-navy-50 text-navy-700 dark:border-white/10 dark:bg-navy-800 dark:text-navy-100',
+  soft: 'bg-gold-100/80 text-gold-700 dark:bg-gold-500/15 dark:text-gold-300',
 } as const;

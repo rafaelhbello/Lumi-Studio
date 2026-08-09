@@ -33,9 +33,17 @@ button {
   background: #f7f8fa;
 }
 
+.dark ::-webkit-scrollbar-track {
+  background: #0b1d34;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #0f2744;
   border-radius: 999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2c4a6e;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -69,15 +77,15 @@ button {
   }
 
   .ds-eyebrow {
-    @apply mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600;
+    @apply mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold-600 dark:text-gold-400;
   }
 
   .ds-heading {
-    @apply font-display text-3xl font-bold text-navy-800 sm:text-4xl;
+    @apply font-display text-3xl font-bold text-navy-800 dark:text-white sm:text-4xl;
   }
 
   .ds-body {
-    @apply text-sm leading-relaxed text-navy-500;
+    @apply text-sm leading-relaxed text-navy-500 dark:text-navy-100/70;
   }
 }
 
@@ -95,6 +103,11 @@ button {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass {
+  background: rgba(11, 29, 52, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-navy {

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
+import ThemeToggle from './ThemeToggle';
 
 const links = [
   { label: 'Serviços', href: '#servicos' },
@@ -37,17 +38,17 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
         <a href="#top" className="flex items-center gap-2.5 group">
           <Logo className="h-9 w-9 transition-transform duration-300 group-hover:scale-105" />
-          <span className="font-display text-lg font-bold tracking-tight text-navy-800">
-            LUMI <span className="text-gold-600">Studio</span>
+          <span className="font-display text-lg font-bold tracking-tight text-navy-800 dark:text-white">
+            LUMI <span className="text-gold-600 dark:text-gold-400">Studio</span>
           </span>
         </a>
 
-        <ul className="hidden items-center gap-9 lg:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative text-sm font-medium text-navy-600 transition-colors hover:text-navy-900 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full"
+                className="relative text-sm font-medium text-navy-600 transition-colors hover:text-navy-900 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full dark:text-navy-100/70 dark:hover:text-white"
               >
                 {link.label}
               </a>
@@ -55,20 +56,26 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href="#cta"
-          className="hidden rounded-full bg-navy-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-navy-800 hover:shadow-gold lg:inline-flex"
-        >
-          Solicitar orçamento
-        </a>
+        <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
+          <a
+            href="#cta"
+            className="rounded-full bg-navy-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-navy-800 hover:shadow-gold dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400"
+          >
+            Solicitar orçamento
+          </a>
+        </div>
 
-        <button
-          aria-label="Abrir menu"
-          onClick={() => setOpen(!open)}
-          className="text-navy-800 lg:hidden"
-        >
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button
+            aria-label="Abrir menu"
+            onClick={() => setOpen(!open)}
+            className="text-navy-800 dark:text-white"
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -86,7 +93,7 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-3 text-sm font-medium text-navy-700 hover:bg-navy-700/5"
+                    className="block rounded-lg px-3 py-3 text-sm font-medium text-navy-700 hover:bg-navy-700/5 dark:text-navy-100 dark:hover:bg-white/5"
                   >
                     {link.label}
                   </a>
@@ -95,7 +102,7 @@ export default function Navbar() {
               <a
                 href="#cta"
                 onClick={() => setOpen(false)}
-                className="mt-2 rounded-full bg-navy-700 px-5 py-3 text-center text-sm font-semibold text-white"
+                className="mt-2 rounded-full bg-navy-700 px-5 py-3 text-center text-sm font-semibold text-white dark:bg-gold-500 dark:text-navy-900"
               >
                 Solicitar orçamento
               </a>
