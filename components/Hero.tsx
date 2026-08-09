@@ -6,9 +6,7 @@ import { ArrowRight, PlayCircle } from 'lucide-react';
 import AmbientBackground from './AmbientBackground';
 import Logo from './Logo';
 
-/** Mini “print” do site LUMI dentro do notebook */
 function BrowserScreen({ variant = 0 }: { variant?: number }) {
-  // variant 0 = hero principal, 1 = serviços, 2 = valores
   if (variant === 1) {
     return (
       <div className="flex h-full w-full flex-col overflow-hidden bg-white">
@@ -73,7 +71,6 @@ function BrowserScreen({ variant = 0 }: { variant?: number }) {
     );
   }
 
-  // variant 0 — Hero da LUMI
   return (
     <div className="flex h-full w-full flex-col overflow-hidden bg-offwhite">
       <div className="flex items-center justify-between border-b border-navy-700/10 bg-white/90 px-3 py-1.5 backdrop-blur">
@@ -128,7 +125,6 @@ function BrowserScreen({ variant = 0 }: { variant?: number }) {
   );
 }
 
-/** Mini “print” mobile do site LUMI */
 function PhoneScreen() {
   return (
     <div className="flex h-full flex-col overflow-hidden bg-offwhite">
@@ -178,7 +174,7 @@ export default function Hero() {
     <section
       id="top"
       ref={ref}
-      className="relative flex min-h-screen items-center overflow-hidden bg-offwhite pt-28"
+      className="relative flex min-h-screen items-center overflow-hidden bg-offwhite pt-28 dark:bg-navy-900"
     >
       <AmbientBackground />
 
@@ -188,7 +184,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-300/60 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-700 shadow-sm"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold-300/60 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-gold-700 shadow-sm dark:border-gold-500/40 dark:bg-navy-800 dark:text-gold-300"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-gold-500" />
             Digital Agency
@@ -198,7 +194,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-navy-800 sm:text-5xl lg:text-[3.4rem]"
+            className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-navy-800 dark:text-white sm:text-5xl lg:text-[3.4rem]"
           >
             Seu studio que o seu site{' '}
             <span className="text-gradient-gold">precisa.</span>
@@ -208,7 +204,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.22 }}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-navy-600"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-navy-600 dark:text-navy-100/70"
           >
             Do negócio local para uma presença profissional online. Criamos sites modernos,
             rápidos e estratégicos para empresas e profissionais que querem vender mais.
@@ -222,14 +218,14 @@ export default function Hero() {
           >
             <a
               href="#cta"
-              className="group inline-flex items-center gap-2 overflow-hidden rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold text-white shadow-premium transition-all duration-300 hover:bg-navy-800"
+              className="group inline-flex items-center gap-2 overflow-hidden rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold text-white shadow-premium transition-all duration-300 hover:bg-navy-800 dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400"
             >
               Solicitar orçamento
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#portfolio"
-              className="inline-flex items-center gap-2 rounded-full border border-navy-700/15 bg-white px-7 py-3.5 text-sm font-semibold text-navy-700 transition-all duration-300 hover:border-gold-400 hover:text-gold-700"
+              className="inline-flex items-center gap-2 rounded-full border border-navy-700/15 bg-white px-7 py-3.5 text-sm font-semibold text-navy-700 transition-all duration-300 hover:border-gold-400 hover:text-gold-700 dark:border-white/15 dark:bg-navy-800 dark:text-navy-50 dark:hover:border-gold-400 dark:hover:text-gold-300"
             >
               <PlayCircle size={16} />
               Ver projetos
@@ -240,21 +236,21 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-12 flex items-center gap-8 border-t border-navy-700/10 pt-6"
+            className="mt-12 flex items-center gap-8 border-t border-navy-700/10 pt-6 dark:border-white/10"
           >
             <div>
-              <p className="font-display text-2xl font-bold text-navy-800">+80</p>
-              <p className="text-xs text-navy-400">projetos entregues</p>
+              <p className="font-display text-2xl font-bold text-navy-800 dark:text-white">+80</p>
+              <p className="text-xs text-navy-400 dark:text-navy-100/50">projetos entregues</p>
             </div>
-            <div className="h-8 w-px bg-navy-700/10" />
+            <div className="h-8 w-px bg-navy-700/10 dark:bg-white/10" />
             <div>
-              <p className="font-display text-2xl font-bold text-navy-800">98%</p>
-              <p className="text-xs text-navy-400">clientes satisfeitos</p>
+              <p className="font-display text-2xl font-bold text-navy-800 dark:text-white">98%</p>
+              <p className="text-xs text-navy-400 dark:text-navy-100/50">clientes satisfeitos</p>
             </div>
-            <div className="h-8 w-px bg-navy-700/10" />
+            <div className="h-8 w-px bg-navy-700/10 dark:bg-white/10" />
             <div>
-              <p className="font-display text-2xl font-bold text-navy-800">5.0</p>
-              <p className="text-xs text-navy-400">avaliação média</p>
+              <p className="font-display text-2xl font-bold text-navy-800 dark:text-white">5.0</p>
+              <p className="text-xs text-navy-400 dark:text-navy-100/50">avaliação média</p>
             </div>
           </motion.div>
         </div>
