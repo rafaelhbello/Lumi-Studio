@@ -171,7 +171,7 @@ export default function BriefingWizard() {
   const featuresList = useMemo(() => {
     const base = [...featureOptions];
     const extra = answers.businessType ? segmentFeatures[answers.businessType] ?? [] : [];
-    const seen = new Set(base.map((f) => f.id));
+    const seen = new Set<string>(base.map((f) => f.id));
     const merged = [...base];
     for (const f of extra) {
       if (!seen.has(f.id)) {
