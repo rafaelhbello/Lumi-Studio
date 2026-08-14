@@ -29,7 +29,7 @@ export default function CTA() {
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <motion.a
-              href="/monte-seu-projeto"
+              href="/#monte-seu-projeto"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gold-500 px-9 py-4 text-sm font-bold text-navy-900 shadow-gold"

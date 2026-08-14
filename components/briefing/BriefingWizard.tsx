@@ -7,43 +7,40 @@ import {
   ArrowRight,
   Building2,
   User,
-  HeartPulse,
+  Heart,
   Stethoscope,
   Scale,
   Store,
-  UtensilsCrossed,
+  Utensils,
   Wrench,
   Landmark,
   MoreHorizontal,
   Rocket,
-  Images,
+  Image,
   ShoppingCart,
   Briefcase,
   Newspaper,
   Rss,
   Users,
-  MessageSquareQuote,
+  MessageSquare,
   Mail,
   Calendar,
   Headphones,
   Lock,
   MessageCircle,
   ClipboardList,
-  CalendarCheck,
   MapPin,
   Instagram,
   Facebook,
   Youtube,
-  Music2,
+  Music,
   BarChart3,
   Target,
   Search,
-  MessagesSquare,
   Phone,
   Settings,
   CreditCard,
-  ShoppingBag,
-  FolderKanban,
+  Folder,
   FileText,
   Eye,
   Megaphone,
@@ -69,7 +66,6 @@ import {
   budgetOptions,
   STEP_TITLES,
   TOTAL_STEPS,
-  type BusinessType,
 } from '@/lib/briefing-data';
 import { buildCommercialSummary, type BriefingAnswers } from '@/lib/briefing-summary';
 
@@ -78,43 +74,49 @@ const WHATSAPP = '5586981302894';
 const iconMap: Record<string, LucideIcon> = {
   Building2,
   User,
-  HeartPulse,
+  HeartPulse: Heart,
+  Heart,
   Stethoscope,
   Scale,
   Store,
-  UtensilsCrossed,
+  UtensilsCrossed: Utensils,
+  Utensils,
   Wrench,
   Landmark,
   MoreHorizontal,
   Rocket,
-  Images,
+  Images: Image,
+  Image,
   ShoppingCart,
   Briefcase,
   Newspaper,
   Rss,
   Users,
-  MessageSquareQuote,
+  MessageSquareQuote: MessageSquare,
+  MessageSquare,
   Mail,
   Calendar,
+  CalendarCheck: Calendar,
   Headphones,
   Lock,
   MessageCircle,
   ClipboardList,
-  CalendarCheck,
   MapPin,
   Instagram,
   Facebook,
   Youtube,
-  Music2,
+  Music2: Music,
+  Music,
   BarChart3,
   Target,
   Search,
-  MessagesSquare,
+  MessagesSquare: MessageSquare,
   Phone,
   Settings,
   CreditCard,
-  ShoppingBag,
-  FolderKanban,
+  ShoppingBag: ShoppingCart,
+  FolderKanban: Folder,
+  Folder,
   FileText,
   Eye,
   Megaphone,
@@ -205,14 +207,12 @@ export default function BriefingWizard() {
       const summary = buildCommercialSummary(answers);
       setSummaryPreview(summary.headline);
 
-      // Estrutura pronta para API futura
       const payload = {
         ...answers,
         summary,
         submittedAt: new Date().toISOString(),
       };
 
-      // Por enquanto: envia via WhatsApp + guarda no localStorage para a LUMI
       try {
         const prev = JSON.parse(localStorage.getItem('lumi-briefings') || '[]');
         prev.push(payload);
@@ -221,9 +221,7 @@ export default function BriefingWizard() {
         /* ignore */
       }
 
-      // Abre WhatsApp com resumo estruturado
       window.open(`https://wa.me/${WHATSAPP}?text=${summary.whatsappMessage}`, '_blank');
-
       setDone(true);
     } catch {
       setError('Algo deu errado. Tente novamente.');
@@ -255,7 +253,7 @@ export default function BriefingWizard() {
           </p>
         )}
         <a
-          href="/"
+          href="/#top"
           className="mt-8 inline-flex rounded-full bg-navy-700 px-6 py-3 text-sm font-semibold text-white dark:bg-gold-500 dark:text-navy-900"
         >
           Voltar ao início
@@ -266,7 +264,6 @@ export default function BriefingWizard() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      {/* Progresso */}
       <div className="mb-8">
         <div className="mb-2 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-navy-400 dark:text-navy-100/50">
           <span>
@@ -296,7 +293,6 @@ export default function BriefingWizard() {
           </h2>
 
           <div className="mt-8 space-y-8">
-            {/* STEP 0 — Sobre você */}
             {step === 0 && (
               <>
                 <div>
@@ -305,7 +301,7 @@ export default function BriefingWizard() {
                   </p>
                   <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                     {businessTypes.map((b) => {
-                      const Icon = iconMap[b.icon];
+                      const Icon = iconMap[b.icon] ?? MoreHorizontal;
                       return (
                         <OptionCard
                           key={b.id}
@@ -341,11 +337,10 @@ export default function BriefingWizard() {
               </>
             )}
 
-            {/* STEP 1 — Páginas */}
             {step === 1 && (
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {pageOptions.map((p) => {
-                  const Icon = iconMap[p.icon];
+                  const Icon = iconMap[p.icon] ?? MoreHorizontal;
                   return (
                     <OptionCard
                       key={p.id}
@@ -360,7 +355,6 @@ export default function BriefingWizard() {
               </div>
             )}
 
-            {/* STEP 2 — Funcionalidades */}
             {step === 2 && (
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {featuresList.map((f) => {
@@ -379,7 +373,6 @@ export default function BriefingWizard() {
               </div>
             )}
 
-            {/* STEP 3 — Materiais */}
             {step === 3 && (
               <div className="space-y-7">
                 {(
@@ -411,7 +404,6 @@ export default function BriefingWizard() {
               </div>
             )}
 
-            {/* STEP 4 — Estilo */}
             {step === 4 && (
               <>
                 <div>
@@ -448,7 +440,6 @@ export default function BriefingWizard() {
               </>
             )}
 
-            {/* STEP 5 — Objetivo */}
             {step === 5 && (
               <>
                 <div>
@@ -485,7 +476,6 @@ export default function BriefingWizard() {
               </>
             )}
 
-            {/* STEP 6 — Orçamento */}
             {step === 6 && (
               <div>
                 <p className="mb-4 text-sm font-medium text-navy-500 dark:text-navy-100/60">
@@ -504,7 +494,6 @@ export default function BriefingWizard() {
               </div>
             )}
 
-            {/* STEP 7 — Contato */}
             {step === 7 && (
               <div className="space-y-4">
                 <Field
@@ -547,7 +536,6 @@ export default function BriefingWizard() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navegação */}
       <div className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-navy-700/8 pt-6 dark:border-white/10">
         <button
           type="button"
@@ -560,7 +548,7 @@ export default function BriefingWizard() {
         </button>
 
         <div className="flex flex-wrap gap-2">
-          {step < TOTAL_STEPS - 1 && step !== 7 && (
+          {step < TOTAL_STEPS - 1 && (
             <button
               type="button"
               onClick={skip}

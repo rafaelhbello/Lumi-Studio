@@ -146,18 +146,12 @@ function PhoneScreen() {
         <div className="mt-0.5 h-1 w-full rounded-full bg-navy-200" />
         <div className="mt-1 h-4 w-full rounded-full bg-navy-700" />
         <div className="mt-auto grid grid-cols-3 gap-1 border-t border-navy-700/10 pt-1.5">
-          <div className="text-center">
-            <div className="mx-auto h-1.5 w-4 rounded-full bg-navy-800" />
-            <div className="mx-auto mt-0.5 h-0.5 w-6 rounded-full bg-navy-200" />
-          </div>
-          <div className="text-center">
-            <div className="mx-auto h-1.5 w-4 rounded-full bg-navy-800" />
-            <div className="mx-auto mt-0.5 h-0.5 w-6 rounded-full bg-navy-200" />
-          </div>
-          <div className="text-center">
-            <div className="mx-auto h-1.5 w-4 rounded-full bg-navy-800" />
-            <div className="mx-auto mt-0.5 h-0.5 w-6 rounded-full bg-navy-200" />
-          </div>
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="text-center">
+              <div className="mx-auto h-1.5 w-4 rounded-full bg-navy-800" />
+              <div className="mx-auto mt-0.5 h-0.5 w-6 rounded-full bg-navy-200" />
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -217,7 +211,7 @@ export default function Hero() {
             className="mt-9 flex flex-wrap items-center gap-4"
           >
             <a
-              href="/monte-seu-projeto"
+              href="/#monte-seu-projeto"
               className="group inline-flex items-center gap-2 overflow-hidden rounded-full bg-navy-700 px-7 py-3.5 text-sm font-semibold text-white shadow-premium transition-all duration-300 hover:bg-navy-800 dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400"
             >
               Monte seu projeto

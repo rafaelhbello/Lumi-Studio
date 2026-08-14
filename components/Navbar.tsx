@@ -13,6 +13,7 @@ const links = [
   { label: 'Processo', href: '/#processo' },
   { label: 'Portfólio', href: '/#portfolio' },
   { label: 'Valores', href: '/#valores' },
+  { label: 'Monte seu projeto', href: '/#monte-seu-projeto' },
   { label: 'FAQ', href: '/#faq' },
 ];
 
@@ -46,31 +47,27 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-6 lg:flex xl:gap-7">
           {links.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative text-sm font-medium text-navy-600 transition-colors hover:text-navy-900 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full dark:text-navy-100/70 dark:hover:text-white"
+                className={`relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 hover:after:w-full ${
+                  link.href.includes('monte-seu-projeto')
+                    ? 'font-semibold text-gold-700 hover:text-gold-600 dark:text-gold-400'
+                    : 'text-navy-600 hover:text-navy-900 dark:text-navy-100/70 dark:hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="/monte-seu-projeto"
-              className="relative text-sm font-semibold text-gold-700 transition-colors hover:text-gold-600 dark:text-gold-400"
-            >
-              Monte seu projeto
-            </a>
-          </li>
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           <a
-            href="/monte-seu-projeto"
+            href="/#monte-seu-projeto"
             className="rounded-full bg-navy-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-navy-800 hover:shadow-gold dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400"
           >
             Monte seu projeto
@@ -111,7 +108,7 @@ export default function Navbar() {
                 </li>
               ))}
               <a
-                href="/monte-seu-projeto"
+                href="/#monte-seu-projeto"
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-full bg-navy-700 px-5 py-3 text-center text-sm font-semibold text-white dark:bg-gold-500 dark:text-navy-900"
               >
