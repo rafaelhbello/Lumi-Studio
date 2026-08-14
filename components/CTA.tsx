@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import SectionReveal from './SectionReveal';
 
-const WHATSAPP = '5586981302894';
-
 export default function CTA() {
   return (
     <section id="cta" className="relative overflow-hidden bg-navy-800 py-28">
@@ -25,22 +23,25 @@ export default function CTA() {
             Vamos criar seu próximo site?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-navy-100/70">
-            Solicite um orçamento sem compromisso e descubra como podemos elevar a presença
-            digital do seu negócio.
+            Monte seu projeto em poucos cliques — sem burocracia. A gente analisa e te apresenta
+            as melhores opções.
           </p>
 
-          <motion.a
-            href={`https://wa.me/${WHATSAPP}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative mt-10 inline-flex items-center gap-2 overflow-hidden rounded-full bg-gold-500 px-9 py-4 text-sm font-bold text-navy-900 shadow-gold"
-          >
-            <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover:translate-x-full" />
-            <span className="relative">Solicitar orçamento</span>
-            <ArrowRight size={16} className="relative transition-transform duration-300 group-hover:translate-x-1" />
-          </motion.a>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <motion.a
+              href="/monte-seu-projeto"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gold-500 px-9 py-4 text-sm font-bold text-navy-900 shadow-gold"
+            >
+              <span className="absolute inset-0 -translate-x-full bg-white/30 transition-transform duration-700 group-hover:translate-x-full" />
+              <span className="relative">Monte seu projeto</span>
+              <ArrowRight
+                size={16}
+                className="relative transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </motion.a>
+          </div>
         </SectionReveal>
       </div>
     </section>

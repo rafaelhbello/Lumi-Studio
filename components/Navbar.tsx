@@ -1,23 +1,26 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import Logo from './Logo';
 import ThemeToggle from './ThemeToggle';
 
 const links = [
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Diferenciais', href: '#diferenciais' },
-  { label: 'Processo', href: '#processo' },
-  { label: 'Portfólio', href: '#portfolio' },
-  { label: 'Valores', href: '#valores' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Serviços', href: '/#servicos' },
+  { label: 'Diferenciais', href: '/#diferenciais' },
+  { label: 'Processo', href: '/#processo' },
+  { label: 'Portfólio', href: '/#portfolio' },
+  { label: 'Valores', href: '/#valores' },
+  { label: 'FAQ', href: '/#faq' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -36,14 +39,14 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="#top" className="flex items-center gap-2.5 group">
+        <a href={isHome ? '#top' : '/'} className="flex items-center gap-2.5 group">
           <Logo className="h-9 w-9 transition-transform duration-300 group-hover:scale-105" />
           <span className="font-display text-lg font-bold tracking-tight text-navy-800 dark:text-white">
             LUMI <span className="text-gold-600 dark:text-gold-400">Studio</span>
           </span>
         </a>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a
@@ -54,15 +57,23 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="/monte-seu-projeto"
+              className="relative text-sm font-semibold text-gold-700 transition-colors hover:text-gold-600 dark:text-gold-400"
+            >
+              Monte seu projeto
+            </a>
+          </li>
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle />
           <a
-            href="#cta"
+            href="/monte-seu-projeto"
             className="rounded-full bg-navy-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-navy-800 hover:shadow-gold dark:bg-gold-500 dark:text-navy-900 dark:hover:bg-gold-400"
           >
-            Solicitar orçamento
+            Monte seu projeto
           </a>
         </div>
 
@@ -100,11 +111,11 @@ export default function Navbar() {
                 </li>
               ))}
               <a
-                href="#cta"
+                href="/monte-seu-projeto"
                 onClick={() => setOpen(false)}
                 className="mt-2 rounded-full bg-navy-700 px-5 py-3 text-center text-sm font-semibold text-white dark:bg-gold-500 dark:text-navy-900"
               >
-                Solicitar orçamento
+                Monte seu projeto
               </a>
             </ul>
           </motion.div>
